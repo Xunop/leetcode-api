@@ -1,4 +1,5 @@
 const userProfileQuery = require("./src/GraphqlQuery/userProfile");
+const userQuestionProgressQuery = require("./src/GraphqlQuery/userQuestionProgress");
 const contestQuery = require("./src/GraphqlQuery/contest");
 const dailyQuery = require("./src/GraphqlQuery/dailyProblem");
 const selectProblemQuery = require("./src/GraphqlQuery/selectProblem");
@@ -12,7 +13,7 @@ const problemsFetch = require("./src/API/problems");
 const userData = require("./src/FormatData/userData")
 const problemData = require("./src/FormatData/problemData");
 
-
+// CN
 exports.userData = (req, res) => {
     userDetailsFetch(req, res, userData.formatUserData, userProfileQuery);
 };
@@ -25,8 +26,9 @@ exports.userContest = (req, res) => {
 exports.userContestHistory = (req, res) => {
     userDetailsFetch(req, res, userData.formatContestHistoryData, contestQuery);
 };
+// CN
 exports.solvedProblem = (req, res) => {
-    userDetailsFetch(req, res, userData.formatSolvedProblemsData, userProfileQuery);
+    userDetailsFetch(req, res, userData.formatQuestionData, userQuestionProgressQuery);
 };
 exports.submission = (req, res) => {
     userDetailsFetch(req, res, userData.formatSubmissionData, submissionQuery);
@@ -34,6 +36,7 @@ exports.submission = (req, res) => {
 exports.calendar = (req, res) => {
     userDetailsFetch(req, res, userData.formatSubmissionCalendarData, userProfileQuery);
 };
+// CN
 exports.dailyProblem = (req, res) => {
     problemFetch(res, problemData.formatDailyData, dailyQuery, null);
 };

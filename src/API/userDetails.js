@@ -1,13 +1,13 @@
 const userDetailsFetch = async (req, res, formatData, query) => {
     let userName = req.params.username;
     let limit = req.query.limit;
-    await fetch('https://leetcode.com/graphql', {
+    await fetch('https://leetcode.cn/graphql', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Referer': 'https://leetcode.com'
+            'Referer': 'https://leetcode.cn'
         },
-        body: JSON.stringify({ query: query, variables: { username: userName, limit: limit } }),
+        body: JSON.stringify({ query: query, variables: { userSlug: userName } }),
 
     })
         .then(result => result.json())
@@ -15,6 +15,7 @@ const userDetailsFetch = async (req, res, formatData, query) => {
             if (data.errors) {
                 res.send(data);
             } else {
+                console.log('Success:', data.data)
                 res.json(formatData(data.data));
             }
         })

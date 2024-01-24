@@ -1,19 +1,16 @@
 exports.formatUserData = (data) => {
     return {
-        username: data.matchedUser.username,
-        name: data.matchedUser.profile.realName,
-        avatar: data.matchedUser.profile.userAvatar,
-        ranking: data.matchedUser.profile.ranking,
-        reputation: data.matchedUser.profile.reputation,
-        gitHub: data.matchedUser.githubUrl,
-        twitter: data.matchedUser.twitterUrl,
-        linkedIN: data.matchedUser.linkedinUrl,
-        website: data.matchedUser.profile.websites,
-        country: data.matchedUser.profile.countryName,
-        company: data.matchedUser.profile.company,
-        school: data.matchedUser.profile.school,
-        skillTags: data.matchedUser.profile.skillTags,
-        about: data.matchedUser.profile.aboutMe,
+        username: data.userProfilePublicProfile.profile.userSlug,
+        name: data.userProfilePublicProfile.profile.realName,
+        avatar: data.userProfilePublicProfile.profile.userAvatar,
+        ranking: data.userProfilePublicProfile.siteRanking,
+        gitHub: data.userProfilePublicProfile.profile.github,
+        website: data.userProfilePublicProfile.profile.socialAccounts,
+        country: data.userProfilePublicProfile.profile.globalLocation.country,
+        company: data.userProfilePublicProfile.profile.company,
+        school: data.userProfilePublicProfile.profile.school.name,
+        skillTags: data.userProfilePublicProfile.profile.skillTags,
+        about: data.userProfilePublicProfile.profile.aboutMe,
     };
 }
 
@@ -51,6 +48,11 @@ exports.formatSolvedProblemsData = (data) => {
         totalSubmissionNum: data.matchedUser.submitStats.totalSubmissionNum,
         acSubmissionNum: data.matchedUser.submitStats.acSubmissionNum,
 
+    };
+}
+exports.formatQuestionData = (data) => {
+    return {
+        acceptedQuestion: data.userProfileUserQuestionProgress.numAcceptedQuestions
     };
 }
 exports.formatSubmissionData = (data) => {

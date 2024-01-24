@@ -1,9 +1,9 @@
 const problemFetch = async (res, formatData, query, varibale) => {
-    await fetch('https://leetcode.com/graphql', {
+    await fetch('https://leetcode.cn/graphql', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Referer': 'https://leetcode.com'
+            'Referer': 'https://leetcode.cn'
         },
         body: JSON.stringify({ query: query, variables: { titleSlug: varibale } }),
     })

@@ -1,68 +1,70 @@
-const query = `query getUserProfile($username: String!) {
-    allQuestionsCount {
-        difficulty
-        count
-    }
-    matchedUser(username: $username) {
-        username
-        githubUrl
-        twitterUrl
-        linkedinUrl
-        contributions {
-            points
-            questionCount
-            testcaseCount
+const query = `query userProfilePublicProfile($userSlug: String!) {
+  userProfilePublicProfile(userSlug: $userSlug) {
+    haveFollowed
+    siteRanking
+    profile {
+      userSlug
+      realName
+      aboutMe
+      asciiCode
+      userAvatar
+      gender
+      websites
+      skillTags
+      ipRegion
+      birthday
+      location
+      useDefaultAvatar
+      github
+      school: schoolV2 {
+        schoolId
+        logo
+        name
+      }
+      company: companyV2 {
+        id
+        logo
+        name
+      }
+      job
+      globalLocation {
+        country
+        province
+        city
+        overseasCity
+      }
+      socialAccounts {
+        provider
+        profileUrl
+      }
+      skillSet {
+        langLevels {
+          langName
+          langVerboseName
+          level
         }
-        profile {
-            realName
-            userAvatar
-            ranking
-            reputation
-            websites
-            countryName
-            company
-            school
-            skillTags
-            aboutMe
-            starRating
+        topics {
+          slug
+          name
+          translatedName
         }
-        badges {
-            id
-            displayName
-            icon
-            creationDate
-        }
-        upcomingBadges {
+        topicAreaScores {
+          score
+          topicArea {
             name
-            icon
+            slug
+          }
         }
-        activeBadge {
-            id
-            displayName
-            icon
-            creationDate
-        }
-        submitStats {
-            totalSubmissionNum {
-                difficulty
-                count
-                submissions
-            }
-            acSubmissionNum {
-                difficulty
-                count
-                submissions
-            }
-        }
-        submissionCalendar
+      }
     }
-    recentSubmissionList(username: $username, limit: 20) {
-        title
-        titleSlug
-        timestamp
-        statusDisplay
-        lang
+    educationRecordList {
+      unverifiedOrganizationName
     }
+    occupationRecordList {
+      unverifiedOrganizationName
+      jobTitle
+    }
+  }
 }`;
 
 module.exports = query;

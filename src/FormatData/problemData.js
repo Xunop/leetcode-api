@@ -1,28 +1,26 @@
 exports.formatDailyData = (data) => {
+    console.log(data.todayRecord);
     return {
-        questionLink: `https://leetcode.com` + data.activeDailyCodingChallengeQuestion.link,
-        date: data.activeDailyCodingChallengeQuestion.date,
-        questionId: data.activeDailyCodingChallengeQuestion.question.questionId,
-        questionFrontendId: data.activeDailyCodingChallengeQuestion.question.questionFrontendId,
-        questionTitle: data.activeDailyCodingChallengeQuestion.question.title,
-        titleSlug: data.activeDailyCodingChallengeQuestion.question.titleSlug,
-        difficulty: data.activeDailyCodingChallengeQuestion.question.difficulty,
-        isPaidOnly: data.activeDailyCodingChallengeQuestion.question.isPaidOnly,
-        question: data.activeDailyCodingChallengeQuestion.question.content,
-        exampleTestcases: data.activeDailyCodingChallengeQuestion.question.exampleTestcases,
-        topicTags: data.activeDailyCodingChallengeQuestion.question.topicTags,
-        hints: data.activeDailyCodingChallengeQuestion.question.hints,
-        solution: data.activeDailyCodingChallengeQuestion.question.solution,
-        companyTagStats: data.activeDailyCodingChallengeQuestion.question.companyTagStats,
-        likes: data.activeDailyCodingChallengeQuestion.question.likes,
-        dislikes: data.activeDailyCodingChallengeQuestion.question.dislikes,
-        similarQuestions: data.activeDailyCodingChallengeQuestion.question.similarQuestions,
+        questionLink: `https://leetcode.cn/problems/` + data.todayRecord[0].question.titleSlug,
+        date: data.todayRecord[0].date,
+        questionId: data.todayRecord[0].question.questionId,
+        questionFrontendId: data.todayRecord[0].question.questionFrontendId,
+        questionTitle: data.todayRecord[0].question.title,
+        titleCn: data.todayRecord[0].question.titleCn,
+        titleSlug: data.todayRecord[0].question.titleSlug,
+        difficulty: data.todayRecord[0].question.difficulty,
+        isPaidOnly: data.todayRecord[0].question.paidOnly,
+        topicTags: data.todayRecord[0].question.topicTags,
+        hints: data.todayRecord[0].question.hints,
+        solutionNum: data.todayRecord[0].question.solutionNum,
+        hasVideoSolution: data.todayRecord[0].question.hasVideoSolution,
+        companyTagStats: data.todayRecord[0].question.extra.companyTagStats,
     };
 };
 
 exports.formatQuestionData = (data) => {
     return {
-        link: `https://leetcode.com/problems/` + data.question.titleSlug,
+        link: `https://leetcode.cn/problems/` + data.question.titleSlug,
         questionId: data.question.questionId,
         questionFrontendId: data.question.questionFrontendId,
         questionTitle: data.question.title,
