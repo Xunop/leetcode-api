@@ -15,7 +15,6 @@ const userDetailsFetch = async (req, res, formatData, query) => {
             if (data.errors) {
                 res.send(data);
             } else {
-                console.log('Success:', data.data)
                 res.json(formatData(data.data));
             }
         })

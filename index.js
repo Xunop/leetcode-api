@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
         routes: {
             note: {
                 "note": "now can use /:username, /:username/solved and /:daily",
-            }
+            },
             userDetails: {
                 "/:username": "get your profile Details",
                 "/:username/badges": "get your badges",
