@@ -6,8 +6,11 @@ const leetcode = require("./leetCode")
 app.get("/", (req, res) => {
     res.json({
         routes: {
-            note: {
-                "note": "now can use /:username, /:username/solved and /:daily",
+            finish: {
+                "/:username": "ok",
+                "/:username/solved": "ok",
+                "/:username/lang": "ok",
+                "/:daily": "ok",
             },
             userDetails: {
                 "/:username": "get your profile Details",
@@ -18,6 +21,7 @@ app.get("/", (req, res) => {
                 "/:username/submission": "get your last 20 submission",
                 "/:username/submission?limit=7": "get some of your last submission",
                 "/:username/calendar": "get your submission calendar",
+                "/:username/lang": "get your language usage",
             },
             problems: {
                 dailyProblem: { "/daily": "get daily Problem", },
@@ -46,6 +50,7 @@ app.get("/:username/contest", leetcode.userContest);
 app.get("/:username/contest/history", leetcode.userContestHistory);
 app.get("/:username/submission", leetcode.submission);
 app.get("/:username/calendar", leetcode.calendar);
+app.get("/:username/lang", leetcode.UserLanguage);
 
 
 app.listen(port, () => {

@@ -66,3 +66,8 @@ exports.formatSubmissionCalendarData = (data) => {
         submissionCalendar: data.matchedUser.submissionCalendar,
     };
 }
+exports.formatUserLanguageData = (data) => {
+    return {
+        userLanguageProblemCount: data.userLanguageProblemCount,
+    };
+}

@@ -1,5 +1,4 @@
-const query = `
-query userQuestionProgress($userSlug: String!) {
+const query = `query userQuestionProgress($userSlug: String!) {
   userProfileUserQuestionProgress(userSlug: $userSlug) {
     numAcceptedQuestions {
       difficulty
@@ -14,7 +13,6 @@ query userQuestionProgress($userSlug: String!) {
       count
     }
   }
-}
-`;
+}`;
 
 module.exports = query;

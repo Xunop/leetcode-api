@@ -1,4 +1,5 @@
 const userProfileQuery = require("./src/GraphqlQuery/userProfile");
+const userLangQuery = require("./src/GraphqlQuery/userLang");
 const userQuestionProgressQuery = require("./src/GraphqlQuery/userQuestionProgress");
 const contestQuery = require("./src/GraphqlQuery/contest");
 const dailyQuery = require("./src/GraphqlQuery/dailyProblem");
@@ -7,6 +8,7 @@ const submissionQuery = require("./src/GraphqlQuery/recentSubmit");
 const problemsQuery = require("./src/GraphqlQuery/problemList");
 
 const userDetailsFetch = require("./src/API/userDetails");
+const nojGoFetch = require("./src/API/nojGo");
 const problemFetch = require("./src/API/problem");
 const problemsFetch = require("./src/API/problems");
 
@@ -16,6 +18,10 @@ const problemData = require("./src/FormatData/problemData");
 // CN
 exports.userData = (req, res) => {
     userDetailsFetch(req, res, userData.formatUserData, userProfileQuery);
+};
+// CN
+exports.UserLanguage = (req, res) => {
+    nojGoFetch(req, res, userData.formatUserLanguageData, userLangQuery);
 };
 exports.userBadges = (req, res) => {
     userDetailsFetch(req, res, userData.formatBadgesData, userProfileQuery);

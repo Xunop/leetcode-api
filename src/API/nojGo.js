@@ -1,7 +1,7 @@
-const userDetailsFetch = async (req, res, formatData, query) => {
+const nojGoFetch = async (req, res, formatData, query) => {
     let userName = req.params.username;
     let limit = req.query.limit;
-    await fetch('https://leetcode.cn/graphql', {
+    await fetch('https://leetcode.cn/graphql/noj-go', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -23,4 +23,4 @@ const userDetailsFetch = async (req, res, formatData, query) => {
         });
 };
 
-module.exports = userDetailsFetch;
+module.exports = nojGoFetch;
