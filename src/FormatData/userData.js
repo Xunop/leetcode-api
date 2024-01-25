@@ -57,8 +57,8 @@ exports.formatQuestionData = (data) => {
 }
 exports.formatSubmissionData = (data) => {
     return {
-        count: data.recentSubmissionList.length,
-        submission: data.recentSubmissionList,
+        count: data.recentACSubmissions.length,
+        submission: data.recentACSubmissions,
     };
 }
 exports.formatSubmissionCalendarData = (data) => {

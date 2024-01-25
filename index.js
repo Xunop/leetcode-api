@@ -11,6 +11,8 @@ app.get("/", (req, res) => {
                 "/:username/solved": "ok",
                 "/:username/lang": "ok",
                 "/:daily": "ok",
+                "/:username/calendar": "ok",
+                "/:username/submission": "ok",
             },
             userDetails: {
                 "/:username": "get your profile Details",
@@ -18,7 +20,7 @@ app.get("/", (req, res) => {
                 "/:username/solved": "get total number of question you solved",
                 "/:username/contest": "get your contest details",
                 "/:username/contest/history": "get all contest history",
-                "/:username/submission": "get your last 20 submission",
+                "/:username/submission": "get your last 15 submission",
                 "/:username/submission?limit=7": "get some of your last submission",
                 "/:username/calendar": "get your submission calendar",
                 "/:username/lang": "get your language usage",

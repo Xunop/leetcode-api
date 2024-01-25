@@ -37,9 +37,11 @@ exports.userContestHistory = (req, res) => {
 exports.solvedProblem = (req, res) => {
     userDetailsFetch(req, res, userData.formatQuestionData, userQuestionProgressQuery);
 };
+// CN
 exports.submission = (req, res) => {
-    userDetailsFetch(req, res, userData.formatSubmissionData, submissionQuery);
+    nojGoFetch(req, res, userData.formatSubmissionData, submissionQuery);
 };
+// CN
 exports.calendar = (req, res) => {
     nojGoFetch(req, res, userData.formatSubmissionCalendarData, userCalendar);
 };
