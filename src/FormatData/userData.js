@@ -63,7 +63,7 @@ exports.formatSubmissionData = (data) => {
 }
 exports.formatSubmissionCalendarData = (data) => {
     return {
-        submissionCalendar: data.matchedUser.submissionCalendar,
+        submissionCalendar: data.userCalendar.submissionCalendar,
     };
 }
 exports.formatUserLanguageData = (data) => {

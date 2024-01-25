@@ -1,5 +1,6 @@
 const userProfileQuery = require("./src/GraphqlQuery/userProfile");
 const userLangQuery = require("./src/GraphqlQuery/userLang");
+const userCalendar = require("./src/GraphqlQuery/userCalendar");
 const userQuestionProgressQuery = require("./src/GraphqlQuery/userQuestionProgress");
 const contestQuery = require("./src/GraphqlQuery/contest");
 const dailyQuery = require("./src/GraphqlQuery/dailyProblem");
@@ -40,7 +41,7 @@ exports.submission = (req, res) => {
     userDetailsFetch(req, res, userData.formatSubmissionData, submissionQuery);
 };
 exports.calendar = (req, res) => {
-    userDetailsFetch(req, res, userData.formatSubmissionCalendarData, userProfileQuery);
+    nojGoFetch(req, res, userData.formatSubmissionCalendarData, userCalendar);
 };
 // CN
 exports.dailyProblem = (req, res) => {
